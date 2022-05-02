@@ -1,3 +1,5 @@
+QUERY CON GROUP BY
+
 1- SELECT YEAR(enrolment_date), COUNT (*)
 FROM students
 GROUP BY YEAR(enrolment_date) 
@@ -6,14 +8,30 @@ ORDER BY YEAR(enrolment_date);
 2- SELECT office_address, COUNT (*) AS number_of_teachers
 FROM teachers
 GROUP BY office_address
-ORDER BY number_of_teachers DESC
+ORDER BY number_of_teachers DESC;
 
 3- SELECT exam_id, AVG(vote) AS media
 FROM exam_student
 GROUP BY exam_id
-ORDER BY exam_id
+ORDER BY exam_id;
 
 4- SELECT department_id, COUNT(*) AS numero_corsi_presenti
 FROM degrees
 GROUP BY department_id;
+
+QUERY CON JOIN
+
+1- SELECT students.name, students.surname, degrees.name AS Corso_di_Laurea
+FROM students
+JOIN degrees
+ON students.degree_id = degrees.id
+WHERE degrees.name ='Corso di Laurea in Economia';
+
+2- SELECT degrees.name
+FROM degrees
+JOIN departments
+ON degrees.department_id = departments.id
+WHERE departments.name = 'Dipartimento di Neuroscienze';
+
+3- 
 
