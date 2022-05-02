@@ -68,3 +68,11 @@ JOIN departments
 ON degrees.department_id = departments.id
 WHERE departments.name = 'Dipartimento di Matematica';
 
+BONUS - SELECT student_id, course_id, COUNT(*) AS Tentativi_esame
+FROM exam_student
+JOIN exams
+ON exams.id = exam_student.exam_id
+WHERE exam_student.vote > 18
+GROUP BY student_id,course_id
+ORDER BY Tentativi_esame;
+
